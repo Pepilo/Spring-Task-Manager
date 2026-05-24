@@ -1,15 +1,23 @@
 package com.pdgs.taskManager.domain.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.time.LocalDate;
 import java.time.Instant;
 import java.util.UUID;
+
+import org.hibernate.annotations.UuidGenerator;
+
 import java.util.Objects;
 
 @Entity
+@Table(name = "Tasks")
 public class Task {
 
+    @Id
+    @UuidGenerator
     private UUID id;
     private String title;
     private String description;
