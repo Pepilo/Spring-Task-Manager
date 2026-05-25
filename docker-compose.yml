@@ -12,7 +12,7 @@ services:
     networks:
       - taskManager-network
     volumes:
-      - postgres-data:/var/lib/postgresql
+      - postgres-data:/var/lib/postgresql/data
 
   #PGAdmin
   pgadmin:
@@ -29,6 +29,20 @@ services:
       - pgadmin-data:/var/lib/pgadmin
     depends_on:
       - database
+
+  #UI
+  UI:
+    image: ghcr.io/devtiro/devtiro-build-task-app:latest
+    restart: unless-stopped
+    environment:
+      BACKEND_HOST: host.docker.internal
+      BACKEND_PORT: 8080
+    ports:
+      - "3000:3000"
+    networks:
+      - taskManager-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 networks:
   taskManager-network:
