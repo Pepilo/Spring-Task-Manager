@@ -33,7 +33,7 @@ public class TaskServiceImpl implements TaskService {
             null,
             request.title(),
             request.description(),
-            request.dueDate(),
+            request.due_Date(),
             TaskStatus.OPEN,
             request.priority(),
             now,
@@ -54,7 +54,7 @@ public class TaskServiceImpl implements TaskService {
 
         task.setTitle(request.title());
         task.setDescription(request.description());
-        task.setDueDate(request.dueDate());
+        task.setDueDate(request.due_Date());
         task.setStatus(request.status());
         task.setPriority(request.priority());
         task.setUpdated(Instant.now());

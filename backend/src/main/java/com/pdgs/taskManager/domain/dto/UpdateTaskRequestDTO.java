@@ -19,7 +19,7 @@ public record UpdateTaskRequestDTO(
     String description,
     @Nullable
     @FutureOrPresent(message = ERROR_MESSAGE_DUEDATE_FUTURE)
-    LocalDate dueDate,
+    LocalDate due_Date,
     @NotNull(message = ERROR_MESSAGE_STATUS)
     TaskStatus status,
     @NotNull (message = ERROR_MESSAGE_PRIORITY)

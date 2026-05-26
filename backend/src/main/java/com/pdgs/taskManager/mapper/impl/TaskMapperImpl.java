@@ -18,7 +18,7 @@ public class TaskMapperImpl implements TaskMapper{
         return new CreateTaskRequest(
             dto.title(),
             dto.description(),
-            dto.dueDate(),
+            dto.due_Date(),
             dto.priority()
         );
     };
@@ -28,7 +28,7 @@ public class TaskMapperImpl implements TaskMapper{
         return new UpdateTaskRequest(
             dto.title(),
             dto.description(),
-            dto.dueDate(),
+            dto.due_Date(),
             dto.status(),
             dto.priority()
         );

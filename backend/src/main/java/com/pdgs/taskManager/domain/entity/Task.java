@@ -1,5 +1,6 @@
 package com.pdgs.taskManager.domain.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -13,7 +14,7 @@ import org.hibernate.annotations.UuidGenerator;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Tasks")
+@Table(name = "tasks")
 public class Task {
 
     @Id
@@ -21,7 +22,7 @@ public class Task {
     private UUID id;
     private String title;
     private String description;
-    private LocalDate dueDate;
+    private LocalDate due_Date;
     private TaskStatus status;
     private TaskPriority priority;
     private Instant created;
@@ -30,11 +31,11 @@ public class Task {
     public Task() {  
     }
 
-    public Task(UUID id, String title, String description, LocalDate dueDate, TaskStatus status, TaskPriority priority, Instant created, Instant updated) {
+    public Task(UUID id, String title, String description, LocalDate due_Date, TaskStatus status, TaskPriority priority, Instant created, Instant updated) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.dueDate = dueDate;
+        this.due_Date = due_Date;
         this.status = status;
         this.priority = priority;
         this.created = created;
@@ -66,11 +67,11 @@ public class Task {
     }
 
     public LocalDate getDueDate() {
-        return dueDate;
+        return due_Date;
     }
 
-    public void setDueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
+    public void setDueDate(LocalDate due_Date) {
+        this.due_Date = due_Date;
     }
 
     public TaskStatus getStatus() {
@@ -127,7 +128,7 @@ public class Task {
             "id=" + id +
             ", title" + title + '\'' +
             ", description" + description + '\'' +
-            ", dueDate=" + dueDate +
+            ", due_Date=" + due_Date +
             ", status=" + status +
             ", priority=" + priority +
             ", created=" + created +
