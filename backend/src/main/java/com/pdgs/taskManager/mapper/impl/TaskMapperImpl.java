@@ -3,8 +3,10 @@ package com.pdgs.taskManager.mapper.impl;
 import org.springframework.stereotype.Component;
 
 import com.pdgs.taskManager.domain.CreateTaskRequest;
+import com.pdgs.taskManager.domain.UpdateTaskRequest;
 import com.pdgs.taskManager.domain.dto.CreateTaskRequestDTO;
 import com.pdgs.taskManager.domain.dto.TaskDTO;
+import com.pdgs.taskManager.domain.dto.UpdateTaskRequestDTO;
 import com.pdgs.taskManager.domain.entity.Task;
 import com.pdgs.taskManager.mapper.TaskMapper;
 
@@ -22,6 +24,17 @@ public class TaskMapperImpl implements TaskMapper{
     };
 
     @Override
+    public UpdateTaskRequest fromDto(UpdateTaskRequestDTO dto) {
+        return new UpdateTaskRequest(
+            dto.title(),
+            dto.description(),
+            dto.dueDate(),
+            dto.status(),
+            dto.priority()
+        );
+    };
+
+    @Override
      public TaskDTO toDto(Task task) {
         return new TaskDTO(
             task.getId(),
@@ -32,5 +45,4 @@ public class TaskMapperImpl implements TaskMapper{
             task.getPriority()
         );
      };
-
 }
